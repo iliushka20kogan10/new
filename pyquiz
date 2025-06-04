@@ -1,0 +1,21 @@
+#functions
+def wca(q, a):
+    answer = input(q+'\n')
+    i = 0
+    while answer != a:
+        i += 1
+        answer = input('попробуй снова\n'+q+'\n')
+    print(f'молодец, {i} - количество попыток')
+
+#preparing quiz
+questions = dict()
+for i in range(int(input('введите кол-во вопросов\n'))):
+    questions[input("вопрос\n")] = input("ответ на вопрос\n")
+
+#checking quiz
+print('добро пожаловать на эту викторину. у вас есть неограниченное количество попыток\n')
+a = 0
+for i in questions:
+    a += 1
+    print(a)
+    wca(i, questions[i])
