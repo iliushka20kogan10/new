@@ -1,0 +1,11 @@
+a = [5, 2, 4, 3, 34524523533632]
+b = []
+c = 0
+for i in range(len(a)):
+    if a[i]%2 == 0:
+        b.append(a[i])
+        a[i] = 0
+    else:
+        c += a[i]
+        a[i] = 1
+print(a, b, c, sep='\n')
