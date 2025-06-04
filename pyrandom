@@ -1,0 +1,16 @@
+from random import *
+
+def wca(q, a):
+    answer = input(q+'\n')
+    lives = 2
+    i = 1
+    while answer != a and lives > 0:
+        i += 1
+        lives -= 1
+        answer = input('попробуй снова\n'+q+'\n')
+    if lives > 0:
+        print(f'молодец, {i} - количество попыток')
+    else:
+        print('жизни закончились, лошок )))')
+    print('было загадано число', a)
+wca('компьютер загадал число от одного до десяти. какое это число?', str(randint(1, 10)))
