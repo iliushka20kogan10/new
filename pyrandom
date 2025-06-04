@@ -8,6 +8,10 @@ def wca(q, a):
         i += 1
         lives -= 1
         answer = input('попробуй снова\n'+q+'\n')
+        if int(answer) > int(a):
+            print('надо меньше')
+        else:
+            print('надо меньше')
     if lives > 0:
         print(f'молодец, {i} - количество попыток')
     else:
