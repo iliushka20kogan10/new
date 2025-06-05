@@ -1,0 +1,61 @@
+import turtle as t
+import random as r
+import time as tm
+
+t1 = t.Turtle()
+t2 = t.Turtle()
+cr = t.Turtle()
+
+#drawing borders
+cr.penup()
+cr.goto(-300, 200)
+cr.right(90)
+cr.pendown()
+cr.forward(400)
+cr.penup()
+cr.goto(300, 200)
+cr.pendown()
+cr.forward(400)
+cr.penup()
+cr.hideturtle()
+
+#preparing the turtles
+t1.penup()
+t2.penup()
+
+t1.shape('turtle')
+t2.shape('turtle')
+
+t1.color('red')
+t2.color('blue')
+
+t1.goto(-300, 100)
+t2.goto(-300, -100)
+
+#running process
+while True:
+    x1 = t1.pos()[0]
+    x2 = t2.pos()[0]
+    tm.sleep(0.1)
+    t1.forward(r.randint(1, 10))
+    t2.forward(r.randint(1, 10))
+    if x1 >= 300 or x2 >= 300:
+        break
+
+#end
+cr.goto(0, 0)
+cr.pendown()
+if  x1 >= 300 and x2 >= 300:
+    cr.write('ничья')
+elif x1 >= 300 and not x2 >= 300:
+    cr.write('первая черепаха выиграла!')
+    t1.goto(0, -100)
+    while True:
+        t1.right(5)
+elif not x1 >= 300 and x2 >= 300:
+    cr.write('вторая черепаха выиграла!')
+    t2.goto(0, -100)
+    while True:
+        t2.right(5)
+
+t.done()
