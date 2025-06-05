@@ -24,6 +24,9 @@ def pup():
 def pdown():
     turtle.pendown()
     print('turtle.pendown()')
+def undo():
+    turtle.undo()
+    print('turtle.undo()')
 
 turtle.listen()
 turtle.onkey(mf, 'Up')
@@ -34,5 +37,6 @@ turtle.onkey(cred, '1')
 turtle.onkey(cblue, '2')
 turtle.onkey(pup, 'w')
 turtle.onkey(pdown, 's')
+turtle.onkey(undo, 'e')
 
 turtle.mainloop()
