@@ -1,0 +1,15 @@
+from turtle import *
+
+colormode(255)
+speed(100)
+pensize(10)
+colors = ['red', 'orange', 'yellow', 'green', 'cyan', 'blue', 'purple']
+def ddd(a, b, listik):
+    for i in range(int(360/b)):
+        color(colors[i%len(listik)])
+        for i in range(6):
+            forward(a)
+            right(60)
+        right(b)
+ddd(150, 18, colors)
+done()
