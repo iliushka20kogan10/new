@@ -1,0 +1,38 @@
+import turtle
+print('import turtle')
+def mf():
+    turtle.forward(30)
+    print('turtle.forward(30)')
+def tl():
+    turtle.left(45)
+    print('turtle.left(45)')
+def mb():
+    turtle.backward(30)
+    print('turtle.backward(30)')
+def tr():
+    turtle.right(45)
+    print('turtle.right(45)')
+def cred():
+    turtle.color('red')
+    print('turtle.color("red")')
+def cblue():
+    turtle.color('blue')
+    print('turtle.color("blue")')
+def pup():
+    turtle.penup()
+    print('turtle.penup()')
+def pdown():
+    turtle.pendown()
+    print('turtle.pendown()')
+
+turtle.listen()
+turtle.onkey(mf, 'Up')
+turtle.onkey(tl, 'Left')
+turtle.onkey(mb, 'Down')
+turtle.onkey(tr, 'Right')
+turtle.onkey(cred, '1')
+turtle.onkey(cblue, '2')
+turtle.onkey(pup, 'w')
+turtle.onkey(pdown, 's')
+
+turtle.mainloop()
