@@ -2,11 +2,13 @@ import turtle as t
 import random as r
 import time as tm
 
+#creating turtles
 t1 = t.Turtle()
 t2 = t.Turtle()
 cr = t.Turtle()
 
 #drawing borders
+cr.hideturtle()
 cr.penup()
 cr.goto(-300, 200)
 cr.right(90)
@@ -17,7 +19,6 @@ cr.goto(300, 200)
 cr.pendown()
 cr.forward(400)
 cr.penup()
-cr.hideturtle()
 
 #preparing the turtles
 t1.penup()
@@ -36,12 +37,14 @@ t2.goto(-300, -100)
 while True:
     x1 = t1.pos()[0]
     x2 = t2.pos()[0]
-    tm.sleep(0.1)
     t1.forward(r.randint(1, 10))
     t2.forward(r.randint(1, 10))
+    t1.right(r.randint(-10, 10))
+    t2.right(r.randint(-10, 10))
     if x1 >= 300 or x2 >= 300:
         break
-
+    if (t1.pos()[1] >= 300 or t2.pos()[1] >= 300) or (t1.pos()[1] <= -300 or t2.pos()[1] <= -300):
+        break
 #end
 cr.goto(0, 0)
 cr.pendown()
@@ -57,5 +60,7 @@ elif not x1 >= 300 and x2 >= 300:
     t2.goto(0, -100)
     while True:
         t2.right(5)
+if (t1.pos()[1] >= 200 or t2.pos()[1] >= 200) or (t1.pos()[1] <= -200 or t2.pos()[1] <= -200):
+    cr. write('черепашки убежали слишком далеко')
 
 t.done()
