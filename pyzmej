@@ -16,7 +16,6 @@ colors = {
     "green": (0, 255, 0),
     "white": (255, 255, 255)
 }
-
 gameover = False
 direction = "right"
 x = 200
@@ -25,9 +24,10 @@ ax = 400
 ay = 120
 score = 0
 font = pg.font.Font(None, 40)
+snake = [[x, y]]
 
 while not gameover:
-    clock.tick(15)
+    clock.tick(5)
     for event in pg.event.get():
         if event.type == pg.QUIT:
             print('"Zmejka" closed')
@@ -49,12 +49,18 @@ while not gameover:
         y -= 40
     if direction == "down":
         y += 40
+    for i in range(len(snake)-1):
+        snake[i] = snake[i+1]
+    snake[-1] = [x, y]
     if x == ax and y == ay:
+        snake.insert(0, snake[0])
         score += 1
-        ax = r.randint(1, 10) * 40
-        ay = r.randint(1, 10) * 40
+        while [ax, ay] in snake:
+            ax = r.randint(1, 10) * 40
+            ay = r.randint(1, 10) * 40
     disp.fill(colors['black'])
-    pg.draw.rect(disp, colors["green"], [x, y, 40, 40])
+    for i in snake:
+        pg.draw.rect(disp, colors["green"], [i[0], i[1], 40, 40])
     pg.draw.rect(disp, colors["red"], [ax, ay, 40, 40])
     message = font.render(f"Score: {score}", True, colors["white"])
     disp.blit(message, [0, 0])
